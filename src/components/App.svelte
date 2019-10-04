@@ -1,67 +1,50 @@
 <div class="app">
-	<Hero />
+	
+	<Nav />
 
-	<main class="wrapper">
-		<svelte:component this={ Route } { params } />
-	</main>
+	<Timer />
+
+	<!-- <main class="wrapper"> -->
+	<!-- </main> -->
 
 	<Footer />
 </div>
 
 <script>
-	import Navaid from 'navaid';
-	import { onMount } from 'svelte';
+	import Nav from '@components/Nav';
+	import Timer from '@components/Timer';
 	import Footer from '@components/Footer';
-	import Hero from '@components/Hero';
 
-	let Route, params={};
-
-	function draw(m, params) {
-		params = params || {};
-		Route = m.default || m;
-	}
-
-	function track(obj) {
-		if (window.ga) {
-			ga.send('pageview', { dp:obj.uri });
-		}
-	}
-
-	const router = (
-		Navaid('/')
-			.on('/', () => import('@pages/Home').then(draw))
-			.on('/blog', () => import('@pages/Blog').then(draw))
-			.on('/blog/:title', obj => import('@pages/Article').then(m => draw(m, obj)))
-			.on('/about', () => import('@pages/About').then(draw))
-	);
-
-	onMount(() => {
-		router.listen();
-		addEventListener('replacestate', track);
-		addEventListener('pushstate', track);
-		addEventListener('popstate', track);
-
-		return () => {
-			removeEventListener('replacestate', track);
-			removeEventListener('pushstate', track);
-			removeEventListener('popstate', track);
-			router.unlisten();
-		};
-	});
 </script>
 
-<style lang="sass">
-	.app
-		position: relative
+<style lang="scss">
+	.app {
+		position: relative;
+		min-height: 100vh;
+		display:flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 	
-	.wrapper
-		width: 75%
-		margin: 0 auto
-		position: relative
-		min-height: calc(55vh - 16px)
-		z-index: 1
+	.wrapper {
+		width: 75%;
+		margin: 0 auto;
+		position: relative;
+		min-height: calc(55vh - 16px);
+		z-index: 1;
+	}
 	
-	@media screen and (max-width: 769px)
-		.wrapper
+	.section {
+		padding-bottom: 64px;
+
+		h2 {
+			margin-bottom: 16px;
+		}
+	}
+	
+	@media screen and (max-width: 769px) {
+		.wrapper {
 			width: 90%
+		}
+	}
 </style>

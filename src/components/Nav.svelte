@@ -1,101 +1,33 @@
-<nav class={classes}>
-	<ul class="links">
-		<li><a href="/">Home</a></li>
-		<li><a href="/blog">Blog</a></li>
-		<li><a href="/about">About</a></li>
-	</ul>
-
-	<ul>
-		<li><a href="https://github.com/lukeed/pwa" class="link_external">GitHub</a></li>
-		<li><a href="https://github.com/lukeed/pwa" class="link_external">Documentation</a></li>
-	</ul>
+<nav class="nav">
+	<h1>Morem</h1>
+	<button on:click={showMenu}>🍔</button>
 </nav>
 
 <script>
-	import { onMount } from 'svelte';
 
-	let stuck = false;
-
-	function onScroll(ev) {
-		stuck = window.pageYOffset > 0;
+	function showMenu() {
+		console.log('@yayyy');
 	}
-
-	$: classes = 'nav' + (stuck ? ' stuck' : '');
-
-	onMount(() => {
-		addEventListener('scroll', onScroll, { passive:true });
-
-		return () => {
-			removeEventListener('scroll', onScroll);
-		}
-	});
 </script>
 
-<style lang="sass">
-	.nav
-		width: 100%
-		height: 56px
-		display: flex
-		padding: 0 32px
-		position: relative
-		background: transparent
-		justify-content: space-between
-		align-items: center
-		position: sticky
-		z-index: 9
-		top: 0
-		&::after
-			opacity: 0
-			content: ''
-			transition: opacity var(--transition-duration)
-			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
-			background: var(--offwhite)
-			will-change: opacity
-			position: absolute
-			height: 100%
-			width: 100%
-			left: 0
-			top: 0
-	
-	.stuck::after
-		opacity: 1
-	
-	.logo
-		height: 24px
-		z-index: 1
-	
-	.nav li
-		display: inline-block
-		position: relative
-		margin-left: 24px
-		list-style: none
-		float: right
-		z-index: 1
-	
-	.link_external
-		position: relative
-		padding-right: 8px
-		&::after
-			content: ''
-			position: absolute
-			background: transparent no-repeat center
-			background-image: url(~@assets/link.svg)
-			height: 12px
-			width: 12px
-			right: -8px
-	
-	.links li
-		float: none
-		margin-left: 0
-		margin-right: 24px
-	
-	@media screen and (max-width: 421px)
-		.nav
-			font-size: 75%
-			padding: 0 16px
-			li
-				margin-left: 16px
-		.links li
-			margin-left: 0
-			margin-right: 16px
+<style lang="scss">
+	nav {
+		background: #2A2A2A;
+		border-bottom: 2px solid var(--blue); 
+		text-align: center;
+		// display: flex;
+		// justify-content: flex-end;
+		h1 {
+			font-size: 2.5rem;
+			padding-bottom: 1rem;
+		}
+	}
+	button {
+		background: none;
+		border: none;
+		font-size: 2rem;
+		position: absolute;
+		right: 2px;
+		top: 2px;
+	}
 </style>
