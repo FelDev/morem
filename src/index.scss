@@ -46,6 +46,10 @@
 	&:after, &:before {
 		box-sizing: border-box;
 	}
+	// makes use of postcss-focus-visible
+	&:focus:not(:focus-visible) {
+		outline: none;
+	}
 }
 
 body {

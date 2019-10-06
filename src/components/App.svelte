@@ -4,10 +4,8 @@
 
 	<Timer />
 
-	<!-- <main class="wrapper"> -->
-	<!-- </main> -->
-
 	<Footer />
+
 </div>
 
 <script>
@@ -24,27 +22,5 @@
 		display:flex;
 		flex-direction: column;
 		justify-content: space-between;
-	}
-	
-	.wrapper {
-		width: 75%;
-		margin: 0 auto;
-		position: relative;
-		min-height: calc(55vh - 16px);
-		z-index: 1;
-	}
-	
-	.section {
-		padding-bottom: 64px;
-
-		h2 {
-			margin-bottom: 16px;
-		}
-	}
-	
-	@media screen and (max-width: 769px) {
-		.wrapper {
-			width: 90%
-		}
 	}
 </style>

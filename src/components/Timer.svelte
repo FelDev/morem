@@ -65,6 +65,6 @@
         font-size: 2rem;
         font-weight: bold;
         margin-top: 2.5rem;
-        padding:0.5rem 1rem;
+        padding:0.5rem 1.5rem;
 	}
 </style>
