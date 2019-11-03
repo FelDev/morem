@@ -4,3 +4,6 @@ exports.postcss = function (config) {
         require('postcss-focus-visible')
     );
 };
+
+// Export these pages during "pwa export" command
+exports.routes = ['/'];
