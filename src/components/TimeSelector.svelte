@@ -49,17 +49,17 @@
             font-size:2rem;
             text-align: center;
         }
-        // justify-content: center
+        
         button {
             font-size:3rem;
-            // border:2px solid blue;
-            // background: #222;
+            background: none;
+            border: none;
         }
     }
     input[type=number] { 
-    -moz-appearance: textfield;
-    appearance: textfield;
-    margin: 0; 
+        -moz-appearance: textfield;
+        appearance: textfield;
+        margin: 0; 
     }
 
     input[type=number]::-webkit-inner-spin-button, 
