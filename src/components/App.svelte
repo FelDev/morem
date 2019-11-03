@@ -2,7 +2,10 @@
 	
 	<Nav />
 
-	<Timer />
+	<main>
+		<TimeSelector />
+		<Timer />
+	</main>
 
 	<Footer />
 
@@ -12,7 +15,7 @@
 	import Nav from '@components/Nav';
 	import Timer from '@components/Timer';
 	import Footer from '@components/Footer';
-
+	import TimeSelector from '@components/TimeSelector';
 </script>
 
 <style lang="scss">
