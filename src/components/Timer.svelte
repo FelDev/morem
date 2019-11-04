@@ -1,27 +1,26 @@
 <div id="timer">
-	<h2>{formatTime(timeToRun)}</h2>
+	<h2>{$timerStarted ? formatTime(timeToRun) : "--:--"}</h2>
 	<button on:click={toggle}>{buttonText}</button>
-    <button on:click={stop} id="btnFinishEarly" class:timerStarted>Finish Early</button>
+    <button on:click={stop} id="btnFinishEarly" class:timerStarted={$timerStarted}>Finish Early</button>
     
 </div>
 
 <script>
 	// import TimeSelector from '@components/TimeSelector';
-	import {hh,mm,ss} from './stores.js';
+	import {timerStarted, hhStartTime,mmStartTime,ssStartTime} from './stores.js';
 
-    let time = "00:00";
     let buttonText = "Start";
-    let timerStarted = false;
+    // let timerStarted = false;
     let timerPaused = false;
     let timer;
     let timeToRun = 0;
 
     function setTimer() {
-        if (timerStarted) {
+        if ($timerStarted) {
             return;
         }
-        timerStarted = true;
-        timeToRun = $ss + ($mm * 60) + ($hh * 60 * 60)
+        $timerStarted = true;
+        timeToRun = $ssStartTime + ($mmStartTime * 60) + ($hhStartTime * 60 * 60)
 
         timer = setInterval(() => {
             if (timerPaused) {
@@ -44,13 +43,13 @@
         audio.play();
         stop();
         console.log('@notifyEndOfMeditation');
-        // alert(`Thanks yourself. You sat for ${formatTime($ss + ($mm * 60) + ($hh * 60 * 60))}`)
+        // alert(`Thank yourself. You sat for ${formatTime($ssStartTime + ($mmStartTime * 60) + ($hhStartTime * 60 * 60))}`)
         
     }
 
     function toggle() {
         console.log('@toggle');
-        if(!timerStarted) {
+        if(!$timerStarted) {
             return setTimer()
         }
         
@@ -65,11 +64,11 @@
     }
 
     function stop() {
-        if (!timerStarted) {
+        if (!$timerStarted) {
             return;
         }
-        timerStarted = false;
-
+        $timerStarted = false;
+        buttonText = "Start"
         clearInterval(timer);
 
     }
