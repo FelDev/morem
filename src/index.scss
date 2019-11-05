@@ -73,4 +73,20 @@ a {
 
 button {
 	color: var(--blue);
+	cursor: pointer;
+	
+	&.basic {
+		background: #2A2A2A;
+        border: 0.3rem solid var(--blue);
+		border-radius: 1rem;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 2.5rem;
+        padding:0.5rem 1.5rem;
+	}
+}
+
+h1 {
+	font-size: 2.5rem;
+	padding-bottom: 1rem;
 }

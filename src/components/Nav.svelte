@@ -1,13 +1,10 @@
 <nav class="nav">
 	<h1>Morem</h1>
-	<button on:click={showMenu}>🍔</button>
+	<button on:click={() => $currentScreen = "BurgerMenu"}>🍔</button>
 </nav>
 
 <script>
-
-	function showMenu() {
-		console.log('@yayyy');
-	}
+	import {currentScreen} from './stores.js';
 </script>
 
 <style lang="scss">
@@ -15,11 +12,8 @@
 		background: #2A2A2A;
 		border-bottom: 2px solid var(--blue); 
 		text-align: center;
-		// display: flex;
-		// justify-content: flex-end;
 		h1 {
-			font-size: 2.5rem;
-			padding-bottom: 1rem;
+			padding-top: 0.25rem;
 		}
 	}
 	button {

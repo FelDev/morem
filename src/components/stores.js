@@ -11,3 +11,33 @@ export const ssDailyIncrease = writable(0);
 export const timerStarted = writable(false)
 
 export const dailyIncreaseIsOn = writable(true)
+
+export const currentScreen = writable("BurgerMenu")
+
+const store = writable(localStorage.getItem("firstVisit") || "");
+
+// store.subscribe(val => localStorage.setItem("firstVisit", "false"));
+
+// mayyyybe...
+// createWritableStore("needsTuto", "true")
+
+// const createWritableStore = (key, startValue) => {
+//     const { subscribe, set } = writable(startValue);
+    
+//       return {
+//         subscribe,
+//         set,
+//         useLocalStorage: () => {
+//             const json = localStorage.getItem(key);
+//             if (json) {
+//                 set(JSON.parse(json));
+//             }
+            
+//             subscribe(current => {
+//                 localStorage.setItem(key, JSON.stringify(current));
+//             });
+//         }
+//     };
+//   }
+  
+//   export const count = createWritableStore('count', 0);

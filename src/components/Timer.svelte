@@ -1,7 +1,7 @@
 <div id="timer">
 	<h2>{$timerStarted ? formatTime(timeToRun) : "--:--"}</h2>
-	<button on:click={toggle}>{buttonText}</button>
-    <button on:click={stop} id="btnFinishEarly" class:timerStarted={$timerStarted}>Finish Early</button>
+	<button class="basic" on:click={toggle}>{buttonText}</button>
+    <button class="basic" on:click={stop} id="btnFinishEarly" class:timerStarted={$timerStarted}>Finish Early</button>
     
 </div>
 
@@ -40,7 +40,7 @@
 
     function notifyEndOfMeditation() {
         let audio = new Audio("./assets/sounds/zen_temple_bell.mp3");
-        audio.play();
+        audio.play(); // Uncaught (in promise) DOMException en prod ici... 🤔
         stop();
         console.log('@notifyEndOfMeditation');
         // alert(`Thank yourself. You sat for ${formatTime($ssStartTime + ($mmStartTime * 60) + ($hhStartTime * 60 * 60))}`)
@@ -118,16 +118,6 @@
     h2 {
         font-size: 5rem;
     }
-
-	button {
-		background: #2A2A2A;
-        border: 0.3rem solid var(--blue);
-        border-radius: 1rem;
-        font-size: 2rem;
-        font-weight: bold;
-        margin-top: 2.5rem;
-        padding:0.5rem 1.5rem;
-	}
 
     #btnFinishEarly {
         visibility: hidden;
