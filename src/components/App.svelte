@@ -25,6 +25,13 @@
 			>
 				<Timer />
 			</section>
+		{:else if $currentScreen == "About"}
+			<section 
+				in:slide="{{delay: 300, duration: 250, easing: quintOut}}"
+				out:slide="{{delay: 0, duration: 250, easing: quintOut}}"
+			>
+				<About />
+			</section>
 		{/if}
 
 	</main>
@@ -35,10 +42,11 @@
 
 <script>
 	import Nav from '@components/Nav';
-	import Timer from '@components/Timer';
-	import Footer from '@components/Footer';
 	import TimeSelector from '@components/TimeSelector';
 	import BurgerMenu from '@components/BurgerMenu';
+	import Timer from '@components/Timer';
+	import About from '@components/About';
+	import Footer from '@components/Footer';
 	import {currentScreen} from './stores.js';
 	
 	import { slide, fade, fly } from 'svelte/transition';
