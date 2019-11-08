@@ -48,12 +48,17 @@
             </div>
         </div>
     {/if}
+
+    <button class="basic" on:click={() => currentScreen.set("Meditation")}> <!-- on:click={() => $currentScreen = "Meditation"}   ça chie. aucune idée pourquoi. -->
+        Start Meditation
+    </button>
 </div>
 
 <script>
     import {timerStarted, hhStartTime, mmStartTime, ssStartTime, hhDailyIncrease, mmDailyIncrease, ssDailyIncrease, dailyIncreaseIsOn} from './stores.js';
     import { slide } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
+	import {currentScreen} from './stores.js';
 
     function zeroFormating(value) {
         if (value < 10) {

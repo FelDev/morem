@@ -9,7 +9,7 @@
     </button>
 
     <button class="basic" on:click={() => $currentScreen = "About"}>
-        About //#TODO
+        About
     </button>
 </div>
 

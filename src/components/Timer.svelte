@@ -1,8 +1,7 @@
 <div id="timer">
-	<h2>{$timerStarted ? formatTime(timeToRun) : "--:--"}</h2>
-	<button class="basic" on:click={toggle}>{buttonText}</button>
+    <h2>{formatTime(timeToRun)}</h2>
+    <button class="basic" on:click={toggle}>{buttonText}</button>
     <button class="basic" on:click={stop} id="btnFinishEarly" class:timerStarted={$timerStarted}>Finish Early</button>
-    
 </div>
 
 <script>
@@ -10,11 +9,10 @@
 	import {timerStarted, hhStartTime,mmStartTime,ssStartTime} from './stores.js';
 
     let buttonText = "Start";
-    // let timerStarted = false;
     let timerPaused = false;
     let timer;
-    let timeToRun = 0;
-
+    let timeToRun = $ssStartTime + ($mmStartTime * 60) + ($hhStartTime * 60 * 60);
+    timeToRun = timeToRun == 0 ? 60 * 5 : timeToRun; 
     function setTimer() {
         if ($timerStarted) {
             return;
@@ -27,11 +25,10 @@
                 return;
             }
 
-            if (timeToRun == 0) {
+            if (timeToRun == 1) {
                 notifyEndOfMeditation()
-            } else {
-                timeToRun--;
-            }
+            } 
+            timeToRun--;
         }, 1000);
 
         buttonText = "Pause"
@@ -109,20 +106,23 @@
 
 <style lang="scss">
     
-    #timer {
-        display:flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    h2 {
-        font-size: 5rem;
-    }
-
     #btnFinishEarly {
         visibility: hidden;
         &.timerStarted {
             visibility: visible;
         }
     }
+    
+    #timer {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+		z-index: 200;
+        position: relative;
+    }
+
+    h2 {
+        font-size: 5rem;
+    }
+
 </style>
