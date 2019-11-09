@@ -1,7 +1,7 @@
 <div id="timer">
     <h2>{formatTime(timeToRun)}</h2>
     <button class="basic" on:click={toggle}>{buttonText}</button>
-    <button class="basic" on:click={stop} id="btnFinishEarly" class:timerStarted={$timerStarted}>Finish Early</button>
+    <button class="basic" on:click={notifyEndOfMeditation} id="btnFinishEarly" class:timerStarted={$timerStarted}>Finish Early</button>
 </div>
 
 <script>
@@ -28,7 +28,9 @@
             if (timeToRun == 1) {
                 notifyEndOfMeditation()
             } 
-            timeToRun--;
+            if (timeToRun > 0) {
+                timeToRun--;
+            }
         }, 1000);
 
         buttonText = "Pause"
@@ -65,6 +67,7 @@
             return;
         }
         $timerStarted = false;
+        timeToRun = 0;
         buttonText = "Start"
         clearInterval(timer);
 
