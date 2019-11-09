@@ -22,7 +22,7 @@
                     <textarea id="message" name="message" placeholder="Required" required></textarea>
                 </div>
             
-                <label class="hidden">Don’t fill this out if you're human: <input name="bruh" /></label>
+                <input class="very-hidden" type="text" name="bruh" />
                 <input class="hidden" type="hidden" name="form-name" value="feedback" />
 
             </section>
@@ -59,7 +59,7 @@
     form {
         border: 0.2rem solid var(--blue);
         border-radius: 1rem;
-        margin: 1rem auto;
+        margin: 1rem auto 2rem auto;
         display: flex;
         flex-direction: column;
         align-items: center;

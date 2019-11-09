@@ -1,7 +1,5 @@
 <footer class="footer">
-	<span>Made with </span>
-	<i class="heart" />
-	<span> by <a href="https://github.com/FelDev/morem">Félix</a></span>
+	<span>Made with <span class="heart">❤</span> by <a href="https://github.com/FelDev/morem">Félix</a></span>
 </footer>
 
 <style lang="scss">
@@ -27,16 +25,8 @@
 		}
 	}
 	
-	.heart {
-		width: 40px;
-		height: 40px;
-		background: transparent url(~@assets/twitter_heart.png) no-repeat;
-		background-size: 2900%;
-		margin: 0 -8px;
-		&:hover {
-			background-position: right;
-			animation: moveHeart 800ms steps(28) forwards;
-		}
+	.heart:hover {
+		color: red; 
 	}
-	
+
 </style>
