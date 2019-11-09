@@ -21,7 +21,9 @@
                     <textarea id="message" name="message" placeholder="Required"></textarea>
                 </div>
             
-                <label class="honeypot">Don’t fill this out if you're human: <input name="bruh" /></label>
+                <label class="hidden">Don’t fill this out if you're human: <input name="bruh" /></label>
+                <input class="hidden" type="hidden" name="form-name" value="feedback" />
+
             </section>
             
             <button type="submit" class="basic">Send</button>
