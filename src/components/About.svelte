@@ -9,6 +9,7 @@
 
     {#if feedback }
         <form name="feedback" id="feedback" method="POST" data-netlify="true" netlify-honeypot="bruh" transition:slide>
+            <h1>Feedback Form 🌈</h1>
             <section>
                 <div>
                     <label for="name">Your Name:</label>
@@ -18,7 +19,7 @@
                 <div>
                     <input type="text" id="name" name="name" placeholder="optional"/>
                     <input type="email" id="email" name="email" placeholder="optional"/>
-                    <textarea id="message" name="message" placeholder="Required"></textarea>
+                    <textarea id="message" name="message" placeholder="Required" required></textarea>
                 </div>
             
                 <label class="hidden">Don’t fill this out if you're human: <input name="bruh" /></label>
@@ -36,12 +37,14 @@
     import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
     
-    let feedback = true;
+    let feedback = false;
 
 </script>
 
 <style lang="scss">
     #about {
+        max-width: 75rem;
+        margin: auto;
         h1 {
             text-align: center;
             margin-top: 2rem;
@@ -56,11 +59,11 @@
     form {
         border: 0.2rem solid var(--blue);
         border-radius: 1rem;
-        margin: 1rem;
+        margin: 1rem auto;
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 100rem;
+        max-width: 96vw;
 
         section {
             font-size: 1.5rem;
