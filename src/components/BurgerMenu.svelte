@@ -1,5 +1,5 @@
 <div id="burgerMenu">
-    <h1>Main Menu</h1>
+    <h1 class="basic">Main Menu</h1>
     <button class="basic" on:click={() => $currentScreen = "SelectTime"}>
         Select Timing
     </button>
