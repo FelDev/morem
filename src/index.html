@@ -17,24 +17,12 @@
 	<body>
 		<div id="app"></div>
 
-		<!-- forms! needed by the netlify bots... -->
-		<form class="hidden" name="feedback" id="feedback" method="POST" data-netlify="true" netlify-honeypot="bruh">
-			<section>
-				<div>
-					<label for="name">Your Name:</label>
-					<label for="email">Your Email:</label>
-					<label for="message">Message:</label>
-				</div>
-				<div>
-					<input type="text" id="name" name="name" placeholder="optional"/>
-					<input type="email" id="email" name="email" placeholder="optional"/>
-					<textarea id="message" name="message" placeholder="Required"></textarea>
-				</div>
-			
-				<label class="honeypot">Don’t fill this out if you're human: <input name="bruh" /></label>
-			</section>
-			
-			<button type="submit" class="basic">Send</button>
+		<!-- forms! The netlify bots can't find a form  -->
+		<form class="very-hidden" name="feedback" id="feedback" method="POST" data-netlify="true" netlify-honeypot="bruh">
+			<input type="text" id="name" name="name" placeholder="optional"/>
+			<input type="email" id="email" name="email" placeholder="optional"/>
+			<textarea id="message" name="message" placeholder="Required"></textarea>
+			<input name="bruh" />
 		</form>
 
 	</body>
