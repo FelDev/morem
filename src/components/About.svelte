@@ -8,7 +8,7 @@
 
 
     {#if feedback }
-        <form name="feedback" id="feedback" method="POST" data-netlify="true" transition:slide>
+        <form name="feedback" id="feedback" method="POST" data-netlify="true" netlify-honeypot="bruh" transition:slide>
             <section>
                 <div>
                     <label for="name">Your Name:</label>
@@ -16,12 +16,12 @@
                     <label for="message">Message:</label>
                 </div>
                 <div>
-                    <input type="text" name="name" placeholder="optional"/>
-                    <input type="email" name="email" placeholder="optional"/>
-                    <textarea name="message" placeholder="Required"></textarea>
+                    <input type="text" id="name" name="name" placeholder="optional"/>
+                    <input type="email" id="email" name="email" placeholder="optional"/>
+                    <textarea id="message" name="message" placeholder="Required"></textarea>
                 </div>
             
-            
+                <label class="honeypot">Don’t fill this out if you're human: <input name="bruh" /></label>
             </section>
             
             <button type="submit" class="basic">Send</button>
@@ -58,6 +58,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 100rem;
 
         section {
             font-size: 1.5rem;
@@ -66,7 +67,7 @@
             display: grid;
             grid-template-columns: auto 1fr;
             grid-template-rows: auto 1fr 1fr;
-            grid-gap: 1rem;
+            grid-gap: 1.5rem;
             
             div * {
                 margin-bottom: 2rem;
@@ -76,9 +77,7 @@
                         min-height: 10rem;
                     }
             label {
-                display: flex;
-                padding-right: 2rem;
-                
+                display: block;
             }
         }
 
