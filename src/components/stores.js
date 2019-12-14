@@ -2,7 +2,7 @@ import { writable } from 'svelte/store';
 
 export const hhStartTime = writable(0);
 export const mmStartTime = writable(0);
-export const ssStartTime = writable(0);
+export const ssStartTime = writable(3);
 
 export const hhDailyIncrease = writable(0);
 export const mmDailyIncrease = writable(0);
@@ -14,7 +14,12 @@ export const dailyIncreaseIsOn = writable(true)
 
 export const currentScreen = writable("BurgerMenu")
 
-const store = writable(localStorage.getItem("firstVisit") || "");
+// const store = writable(localStorage.getItem("appState") || {
+    // lastTime: null,
+    // increase: 5,
+    // incFrequency:1,
+    // lastDate: null
+// });
 
 // store.subscribe(val => localStorage.setItem("firstVisit", "false"));
 

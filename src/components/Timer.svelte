@@ -7,6 +7,8 @@
 <script>
 	// import TimeSelector from '@components/TimeSelector';
 	import {timerStarted, hhStartTime,mmStartTime,ssStartTime} from './stores.js';
+    import NoSleep from "NoSleep.js"
+    var noSleep = new NoSleep();
 
     let buttonText = "Start";
     let timerPaused = false;
@@ -34,6 +36,7 @@
         }, 1000);
 
         buttonText = "Pause"
+        noSleep.enable()
         return
     }
 
@@ -70,7 +73,7 @@
         timeToRun = 0;
         buttonText = "Start"
         clearInterval(timer);
-
+        noSleep.disable();
     }
 
     function formatTime(seconds) {

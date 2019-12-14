@@ -15,7 +15,9 @@ if (process.env.NODE_ENV === 'production') {
 	// Service Worker registration
 	// #TODO: apprendre comment ça marche tout ça...
 	// if ('serviceWorker' in navigator) {
-		// navigator.serviceWorker.register('/sw.js');
+		// navigator.serviceWorker.register('/sw.js', {
+			// updateViaCache: 'none' 
+		// });
 	// }
 
 	
