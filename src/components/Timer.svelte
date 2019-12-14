@@ -7,7 +7,7 @@
 <script>
 	// import TimeSelector from '@components/TimeSelector';
 	import {timerStarted, hhStartTime,mmStartTime,ssStartTime} from './stores.js';
-    import NoSleep from "NoSleep.js"
+    import NoSleep from "nosleep.js"
     var noSleep = new NoSleep();
 
     let buttonText = "Start";
