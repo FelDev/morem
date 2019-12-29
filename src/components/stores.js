@@ -1,29 +1,77 @@
 import { writable } from 'svelte/store';
 
-export const hhStartTime = writable(0);
-export const mmStartTime = writable(0);
-export const ssStartTime = writable(3);
+let appState = localStorage.getItem("appState")
+console.log('@appState: ', appState);
 
-export const hhDailyIncrease = writable(0);
-export const mmDailyIncrease = writable(0);
-export const ssDailyIncrease = writable(0);
+if (appState == null) {
+    appState = {
+        lastTime: 3, // seconds
+        increase: 0,    // seconds
+        dailyIncreaseIsOn: true, // boolean for now, hours eventually?
+        lastSession: null  // JS Date Object
+    }
+	localStorage.setItem("appState", JSON.stringify(appState))
+} else {
+	appState = JSON.parse(appState)
+}
+
+export const store = writable(appState);
+
+console.log('@appState: ', appState);
+let hhStartTimeInit = 0;
+let mmStartTimeInit = 0;
+let ssStartTimeInit = 3;
+let hhDailyIncreaseInit = 0;
+let mmDailyIncreaseInit = 0;
+let ssDailyIncreaseInit = 5;
+let dailyIncreaseIsOnInit = appState.dailyIncreaseIsOn;
+
+if (appState.lastTime != null) {
+    if (mustIncrease()) {
+        appState.lastTime += appState.increase
+        let dateObj = new Date(appState.increase * 1000);
+        hhDailyIncreaseInit = dateObj.getUTCHours();
+        mmDailyIncreaseInit = dateObj.getUTCMinutes();
+        ssDailyIncreaseInit = dateObj.getSeconds();
+        
+    }
+    let dateObj = new Date(appState.lastTime * 1000);
+    hhStartTimeInit = dateObj.getUTCHours();
+    mmStartTimeInit = dateObj.getUTCMinutes();
+    ssStartTimeInit = dateObj.getSeconds();
+
+}
+
+export const hhStartTime = writable(hhStartTimeInit);
+export const mmStartTime = writable(mmStartTimeInit);
+export const ssStartTime = writable(ssStartTimeInit);
+
+export const hhDailyIncrease = writable(hhDailyIncreaseInit);
+export const mmDailyIncrease = writable(mmDailyIncreaseInit);
+export const ssDailyIncrease = writable(ssDailyIncreaseInit);
 
 export const timerStarted = writable(false)
 
-export const dailyIncreaseIsOn = writable(true)
+export const dailyIncreaseIsOn = writable(dailyIncreaseIsOnInit)
 
 export const currentScreen = writable("BurgerMenu")
 
-// const store = writable(localStorage.getItem("appState") || {
-    // lastTime: null,
-    // increase: 5,
-    // incFrequency:1,
-    // lastDate: null
-// });
+
+function mustIncrease() {
+    if (!appState.dailyIncreaseIsOn) {
+        return false;
+    }
+    if ((Date.now() - appState.lastSession) > (1000 * 30 )) { // (30 seconds...) 1 hour. Hardcoded for now. * 60
+        return true;
+    }
+    return false;
+}
+
+
+// mayyyybe... https://higsch.me/2019/06/22/2019-06-21-svelte-local-storage/
 
 // store.subscribe(val => localStorage.setItem("firstVisit", "false"));
 
-// mayyyybe...
 // createWritableStore("needsTuto", "true")
 
 // const createWritableStore = (key, startValue) => {

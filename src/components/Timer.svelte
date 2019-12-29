@@ -6,7 +6,8 @@
 
 <script>
 	// import TimeSelector from '@components/TimeSelector';
-	import {timerStarted, hhStartTime,mmStartTime,ssStartTime} from './stores.js';
+    import {timerStarted, hhStartTime,mmStartTime,ssStartTime} from './stores.js';
+    import {setLocalStorage} from './SetLocalStorage'
     import NoSleep from "nosleep.js"
     var noSleep = new NoSleep();
 
@@ -73,6 +74,7 @@
         timeToRun = 0;
         buttonText = "Start"
         clearInterval(timer);
+        setLocalStorage()
         noSleep.disable();
     }
 
