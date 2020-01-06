@@ -14,6 +14,7 @@
 		text-align: center;
 		h1 {
 			padding-top: 0.25rem;
+			padding-bottom: 0.5rem;
 		}
 	}
 	button {

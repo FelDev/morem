@@ -61,7 +61,7 @@ function mustIncrease() {
     if (!appState.dailyIncreaseIsOn) {
         return false;
     }
-    if ((Date.now() - appState.lastSession) > (1000 * 30 )) { // (30 seconds...) 1 hour. Hardcoded for now. * 60
+    if ((Date.now() - appState.lastSession) > (1000 * 30 )) { // Hardcoded 30 seconds for now. could be an hour eventually... 1000 * 60 * 60
         return true;
     }
     return false;
