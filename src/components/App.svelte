@@ -32,6 +32,13 @@
 			>
 				<About />
 			</section>
+		{:else if $currentScreen == "Congratulations"}
+			<section 
+				in:slide="{{delay: 300, duration: 250, easing: quintOut}}"
+				out:slide="{{delay: 0, duration: 250, easing: quintOut}}"
+			>
+				<Congratulations />
+			</section>
 		{/if}
 
 	</main>
@@ -51,6 +58,7 @@
 	import Timer from '@components/Timer';
 	import About from '@components/About';
 	import Footer from '@components/Footer';
+	import Congratulations from '@components/Congratulations';
 	import {currentScreen, timerStarted} from './stores.js';
 	
 	import { slide, fade, fly } from 'svelte/transition';

@@ -54,6 +54,8 @@ export const timerStarted = writable(false)
 
 export const dailyIncreaseIsOn = writable(dailyIncreaseIsOnInit)
 
+export const lastSittingTime = writable(0)
+
 export const currentScreen = writable("BurgerMenu")
 
 
