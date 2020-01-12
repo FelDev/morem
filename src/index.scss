@@ -1,7 +1,8 @@
 :root {
 	--blue: #1E88E5;
 	--white: #FFFFFF;
-	--offwhite: #F8F8FA;
+	--off-white: #BEC8CF;
+	--light-grey: #AAB8C2;
 	--bg-color: #333;
 	--transition-duration: 300ms;
 	--font-header: 'Montserrat';
@@ -62,7 +63,7 @@
 
 body {
 	background: var(--bg-color);
-	color: #aab8c2;
+	color: var(--light-grey);
 	position: relative;
 	font-family: var(--font-list);
 	-webkit-font-smoothing: antialiased;
