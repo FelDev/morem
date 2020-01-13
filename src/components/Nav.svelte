@@ -34,7 +34,8 @@
 		background: none;
 		border: none;
 		position: absolute;
-		right: -1px;
+		overflow: hidden;
+		right: 1px;
 		top: -1px;
 	
 		// much credit to AAlmodovar: https://codepen.io/a-almodovar/pen/WNbJEXp?editors=1100

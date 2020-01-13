@@ -1,9 +1,9 @@
-<footer class="footer">
-	<span>Made with <span class="heart">❤</span> by <a href="https://github.com/FelDev/morem">Félix</a></span>
+<footer>
+	<span>Made with <span class="heart">❤</span> by <a href="https://www.felixparadis.com">Félix</a></span>
 </footer>
 
 <style lang="scss">
-	.footer {
+	footer {
 		font-size: 1rem;
 		font-weight: 800;
 		background: #263238;
