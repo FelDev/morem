@@ -23,7 +23,7 @@
 
     <div id="dailyIncreaseChecker">
         <input id="dailyIncrease" type="checkbox" bind:checked={$dailyIncreaseIsOn}> 
-        <label for="daylyIncrease" > Increase timer everyday? </label>
+        <label for="dailyIncrease" > Increase timer everyday? </label>
     </div>
 
     {#if $dailyIncreaseIsOn}
